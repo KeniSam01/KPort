@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 import argparse,socket,time, subprocess
 from datetime import datetime
 
