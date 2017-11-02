@@ -1,16 +1,20 @@
 # -*- coding: UTF-8 -*-
 
-import argparse,socket,time, subprocess
+import argparse
+import socket
+import time
+import subprocess
 from datetime import datetime
 
+
 def starting():
-    if (args.port):
+    if args.port:
         port()
 
     else:
         try:
             clear()
-            if args.verbose == True:
+            if args.verbose:
                 verbose()
 
             else:
@@ -18,7 +22,8 @@ def starting():
                 connection()
 
         except TypeError:
-            print '\033[32m', hour(), ' [INFO] Please try again, you have entered an incorrect ip\n''\033[0;0m\n'
+            print hour(), " [INFO] Please try again, you have entered an incorrect ip\n"
+
 
 def banner():
     print '\033[32m'''' 
@@ -30,19 +35,21 @@ def banner():
   MM   `MM.    MM       YA.   ,A9   MM       MM    
 .JMML.   MMb..JMML.      `Ybmd9'  .JMML.     `Mbmo     \n''''\033[0;0m'
 
+
 def escopo():
 
     time.sleep(1)
     banner()
     time.sleep(1)
-    print '\033[32m', hour() , " [INFO] The tool is starting"'\033[0;0m'
+    print hour(), " [INFO] The tool is starting"
     time.sleep(1)
-    print '\033[32m', hour() , " [INFO] Scanning the IP"'\033[0;0m'
+    print hour(), " [INFO] Scanning the IP"
     time.sleep(1)
-    print '\033[32m', hour() , " [INFO] Getting information from: " + args.ip + '\033[0;0m'
+    print hour(), " [INFO] Getting information from: " + args.ip
     time.sleep(1)
-    print '\033[32m', hour() , " [INFO] Show port's and status:\n"'\033[0;0m'
+    print hour(), " [INFO] Show port's and status:\n"
     time.sleep(1)
+
 
 def connection():
     try:
@@ -52,15 +59,12 @@ def connection():
             code = cliente.connect_ex((args.ip, int(port)))
 
             if code == 0:
-                print '\033[32m'" Port ", int(port), " Open"'\033[0;0m'
+                print " Port ", int(port), " Open"
                 time.sleep(0.75)
-        print "\n"
-        exit()
-
-
+        print "\n", exit()
     except KeyboardInterrupt:
-        print "\n'\033[32m'" , hour() , " [INFO] The tool was interrupted by the user\n"'\033[0;0m'
-        exit()
+        print "\n", hour(), " [INFO] The tool was interrupted by the user\n", exit()
+
 
 def verbose():
     try:
@@ -73,16 +77,16 @@ def verbose():
 
             if code == 0:
                 time.sleep(0.75)
-                print '\033[32m'"  Port ", int(port), " Open"'\033[0;0m'
+                print "  Port ", int(port), " Open"
             else:
                 time.sleep(0.75)
                 print " Port ", int(port), " Closed"
-        print "\n"
-        exit()
+        print "\n", exit()
 
     except KeyboardInterrupt:
-        print "\n'\033[32m'" , hour() , " [INFO] The tool was interrupted by the user\n"'\033[0;0m'
+        print "\n", hour(), " [INFO] The tool was interrupted by the user \n"
         exit()
+
 
 def port():
     clear()
@@ -95,27 +99,28 @@ def port():
 
         if code == 0:
             time.sleep(0.75)
-            print '\033[32m'"  Port ", int(value), " Open"'\033[0;0m'
+            print "  Port ", int(value), " Open"
         else:
             time.sleep(0.75)
             print " Port ", int(value), " Closed"
-        print "\n"
-        exit()
+        print "\n", exit()
     except KeyboardInterrupt:
-        print "\n'\033[32m'" , hour() , " [INFO] The tool was interrupted by the user\n"'\033[0;0m'
-        exit()
+        print hour(), " [INFO] The tool was interrupted by the user\n", exit()
+
 
 def clear():
     subprocess.call('clear', shell=True)
+
 
 def hour():
     now = datetime.now()
     return "[" + str(now.hour) + ":" + str(now.minute) + "]"
 
+
 parser = argparse.ArgumentParser()
-parser.add_argument("-ip","--ip", dest="ip", help="Enter the Target IP")
+parser.add_argument("-ip", "--ip", dest="ip", help="Enter the Target IP")
 parser.add_argument("-port", "--port", dest="port", help="Enter the port you want to scan", nargs=1)
-parser.add_argument("-v", "--verbose", dest="verbose", help="Verbose mode (0/1)", type=int, )
+parser.add_argument("-v", "--verbose", dest="verbose", help="Verbose mode (0/1)", type=int)
 args = parser.parse_args()
 
 port_2 = range(50000)
