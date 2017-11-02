@@ -26,14 +26,14 @@ def starting():
 
 
 def banner():
-    print '\033[32m'''' 
+    print ''' 
 `7MMF' `YMM' `7MM"""Mq.                      mm    
   MM   .M'     MM   `MM.                     MM    
   MM .d"       MM   ,M9  ,pW"Wq.  `7Mb,od8 mmMMmm  
   MMMMM.       MMmmdM9  6W'   `Wb   MM' "'   MM    
   MM  VMA      MM       8M     M8   MM       MM    
   MM   `MM.    MM       YA.   ,A9   MM       MM    
-.JMML.   MMb..JMML.      `Ybmd9'  .JMML.     `Mbmo     \n''''\033[0;0m'
+.JMML.   MMb..JMML.      `Ybmd9'  .JMML.     `Mbmo     \n'''
 
 
 def escopo():
